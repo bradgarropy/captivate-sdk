@@ -44,12 +44,15 @@
         "prepare": "npm run build"
     },
     "dependencies": {
+        "form-data": "^4.0.0",
+        "node-fetch": "^2.6.5",
         "tslib": "^2.1.0"
     },
     "devDependencies": {
         "@bradgarropy/eslint-config": "^1.1.0",
         "@bradgarropy/eslint-config-typescript": "^1.0.0",
         "@types/jest": "^26.0.20",
+        "@types/node-fetch": "^2.5.12",
         "@typescript-eslint/eslint-plugin": "^4.14.2",
         "@typescript-eslint/parser": "^4.14.2",
         "all-contributors-cli": "^6.20.0",
