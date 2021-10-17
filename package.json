@@ -1,18 +1,20 @@
 {
-    "name": "@bradgarropy/node-library-starter",
-    "version": "1.2.2",
-    "description": "🟢 node library starter",
+    "name": "@bradgarropy/captivate-sdk",
+    "version": "0.0.1",
+    "description": "🎤 captivate sdk",
     "keywords": [
         "node",
         "typescript",
         "eslint",
         "prettier",
         "jest",
-        "starter"
+        "podcast",
+        "captivate",
+        "sdk"
     ],
-    "homepage": "https://github.com/bradgarropy/node-library-starter",
+    "homepage": "https://github.com/bradgarropy/captivate-sdk",
     "bugs": {
-        "url": "https://github.com/bradgarropy/node-library-starter/issues"
+        "url": "https://github.com/bradgarropy/captivate-sdk/issues"
     },
     "license": "MIT",
     "author": {
@@ -27,7 +29,7 @@
     "types": "dist/types/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "https://github.com/bradgarropy/node-library-starter"
+        "url": "https://github.com/bradgarropy/captivate-sdk"
     },
     "scripts": {
         "start": "tsc --watch",
