@@ -1,5 +1,6 @@
-const Captivate = require("../.")
-const dotenv = require("dotenv")
+import dotenv from "dotenv"
+
+import Captivate from "../dist/index.js"
 
 dotenv.config()
 
