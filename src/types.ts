@@ -49,7 +49,7 @@ type Show = {
     season: string
     time_zone: string
     import: string
-    failed_import: number
+    failed_import: boolean
     imported_from: string
     third_party_analytics: string
     prefixes: string
@@ -182,7 +182,11 @@ type GetEpisodeResponse = Response & {
 
 export type {
     AuthenticateUserResponse,
+    Episode,
     GetEpisodeResponse,
     GetShowEpisodesResponse,
     GetShowResponse,
+    Response,
+    Show,
+    User,
 }

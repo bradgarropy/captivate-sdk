@@ -3,15 +3,18 @@ import fetch from "node-fetch"
 
 import {
     AuthenticateUserResponse,
+    Episode,
     GetEpisodeResponse,
     GetShowEpisodesResponse,
     GetShowResponse,
+    Show,
+    User,
 } from "./types"
 
 class Captivate {
     userId: string
     apiKey: string
-    token: string | null
+    token: User["token"] | null
 
     private API_URL = "https://api.captivate.fm"
 
@@ -21,7 +24,7 @@ class Captivate {
         this.token = null
     }
 
-    authenticateUser = async (): Promise<AuthenticateUserResponse> => {
+    authenticateUser = async (): Promise<User> => {
         const form = new FormData()
 
         form.append("username", this.userId)
@@ -35,13 +38,13 @@ class Captivate {
             redirect: "follow",
         })
 
-        const authenticatedUser: AuthenticateUserResponse = await response.json()
-        this.token = authenticatedUser.user.token
+        const json: AuthenticateUserResponse = await response.json()
+        this.token = json.user.token
 
-        return authenticatedUser
+        return json.user
     }
 
-    getShow = async (showId: string): Promise<GetShowResponse> => {
+    getShow = async (showId: Show["id"]): Promise<Show> => {
         await this.authenticateUser()
 
         const response = await fetch(`${this.API_URL}/shows/${showId}`, {
@@ -52,13 +55,11 @@ class Captivate {
             redirect: "follow",
         })
 
-        const show: GetShowResponse = await response.json()
-        return show
+        const json: GetShowResponse = await response.json()
+        return json.show
     }
 
-    getShowEpisodes = async (
-        showId: string,
-    ): Promise<GetShowEpisodesResponse> => {
+    getShowEpisodes = async (showId: Show["id"]): Promise<Episode[]> => {
         await this.authenticateUser()
 
         const response = await fetch(
@@ -72,11 +73,11 @@ class Captivate {
             },
         )
 
-        const showEpisodes: GetShowEpisodesResponse = await response.json()
-        return showEpisodes
+        const json: GetShowEpisodesResponse = await response.json()
+        return json.episodes
     }
 
-    getEpisode = async (episodeId: string): Promise<GetEpisodeResponse> => {
+    getEpisode = async (episodeId: Episode["id"]): Promise<Episode> => {
         await this.authenticateUser()
 
         const response = await fetch(`${this.API_URL}/episodes/${episodeId}`, {
@@ -87,8 +88,8 @@ class Captivate {
             redirect: "follow",
         })
 
-        const episode: GetEpisodeResponse = await response.json()
-        return episode
+        const json: GetEpisodeResponse = await response.json()
+        return json.episode
     }
 }
 
