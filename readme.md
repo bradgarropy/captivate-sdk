@@ -26,7 +26,6 @@ Start off by creating a `Captivate` client, then authenticate to the [Captivate 
 
 ```javascript
 const captivate = new Captivate("abc123", "123456789")
-captivate.authenticateUser()
 
 const show = await captivate.getShow("abc123")
 const episode = await captivate.getEpisode("xyz123")
