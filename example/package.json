@@ -1,7 +1,50 @@
 {
-    "type": "module",
+    "name": "node-starter",
+    "version": "2.0.0",
+    "description": "🟢 node.js javascript starter",
+    "keywords": [
+        "node",
+        "typescript",
+        "eslint",
+        "prettier",
+        "jest"
+    ],
+    "homepage": "https://github.com/bradgarropy/node-starter",
+    "bugs": {
+        "url": "https://github.com/bradgarropy/node-starter/issues"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Brad Garropy",
+        "email": "bradgarropy@gmail.com",
+        "url": "https://bradgarropy.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bradgarropy/node-starter"
+    },
     "scripts": {
-        "start": "node index.mjs"
+        "start": "tsc && node dist/index.js",
+        "build": "tsc",
+        "build:watch": "tsc --watch",
+        "lint": "eslint .",
+        "lint:fix": "eslint --fix .",
+        "format": "prettier --check .",
+        "format:fix": "prettier --write .",
+        "test": "jest --passWithNoTests",
+        "test:watch": "jest --passWithNoTests --watch"
+    },
+    "devDependencies": {
+        "@bradgarropy/eslint-config": "^1.1.0",
+        "@bradgarropy/eslint-config-typescript": "^1.0.2",
+        "@typescript-eslint/eslint-plugin": "^4.29.3",
+        "@typescript-eslint/parser": "^4.29.3",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-simple-import-sort": "^7.0.0",
+        "prettier": "^2.3.2",
+        "typescript": "^4.3.5"
     },
     "dependencies": {
         "dotenv": "^10.0.0"

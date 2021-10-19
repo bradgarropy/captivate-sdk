@@ -1,2 +1,5 @@
 import Captivate from "./captivate"
-export = Captivate
+import {Episode, Show, User} from "./types"
+
+export default Captivate
+export type {Episode, Show, User}
