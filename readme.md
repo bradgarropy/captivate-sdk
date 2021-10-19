@@ -10,9 +10,7 @@
 [![contributors][contributors-badge]][contributors]
 [![discord][discord-badge]][discord]
 
-_Starter for `node` libraries._
-
-// TODO: write intro section.
+_[Captivate][captivate] JavaScript SDK for retrieving podcast information._
 
 ## 📦 Installation
 
@@ -24,11 +22,74 @@ npm install @bradgarropy/captivate-sdk
 
 ## 🥑 Usage
 
-// TODO: Write usage section.
+Start off by creating a `Captivate` client, then authenticate to the [Captivate API][captivate-api]. Now you can use the client to retrieve your podcast shows and episodes.
+
+```javascript
+const captivate = new Captivate("abc123", "123456789")
+captivate.authenticateUser()
+
+const show = await captivate.getShow("abc123")
+const episode = await captivate.getEpisode("xyz123")
+```
 
 ## 📖 API Reference
 
-// TODO: Write api reference section.
+### `Captivate(userId, apiKey)`
+
+| Name     | Type     | Example       | Description        |
+| -------- | -------- | ------------- | ------------------ |
+| `userId` | `string` | `"abc123"`    | Captivate user id. |
+| `apiKey` | `string` | `"123456789"` | Captivate api key. |
+
+Create a `Captivate` client.
+
+```javascript
+const captivate = new Captivate("abc123", "123456789")
+```
+
+### `captivate.authenticateUser()`
+
+Authenticate a user to the [Captivate API][captivate-api].
+
+```javascript
+captivate.authenticateUser()
+```
+
+### `captivate.getShow(showId)`
+
+| Name     | Type     | Example    | Description      |
+| -------- | -------- | ---------- | ---------------- |
+| `showId` | `string` | `"abc123"` | Podcast show id. |
+
+Get a podcast.
+
+```javascript
+captivate.getShow("abc123")
+```
+
+### `captivate.getShowEpisodes(showId)`
+
+| Name     | Type     | Example    | Description      |
+| -------- | -------- | ---------- | ---------------- |
+| `showId` | `string` | `"abc123"` | Podcast show id. |
+
+Get all episodes from a podcast.
+
+```javascript
+captivate.getShowEpisodes("abc123")
+```
+
+### `captivate.getEpisode(episodeId)`
+
+| Name        | Type     | Example    | Description         |
+| ----------- | -------- | ---------- | ------------------- |
+| `episodeId` | `string` | `"xyz123"` | Podcast episode id. |
+
+Get a podcast episode.
+
+```javascript
+captivate.getEpisode("xyz123")
+```
 
 ## ❔ Questions
 
@@ -72,3 +133,5 @@ npm install @bradgarropy/captivate-sdk
 [typescript-badge]: https://img.shields.io/npm/types/@bradgarropy/captivate-sdk?style=flat-square
 [discord]: https://bradgarropy.com/discord
 [discord-badge]: https://img.shields.io/discord/748196643140010015?style=flat-square
+[captivate]: https://captivate.fm
+[captivate-api]: https://api.captivate.fm
