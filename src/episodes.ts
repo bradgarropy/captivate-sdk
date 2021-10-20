@@ -1,10 +1,10 @@
 import fetch from "node-fetch"
 
 import {API_URL} from "./constants"
-import {Episode, GetEpisodeResponse, User} from "./types"
+import {AuthenticatedUser, Episode, GetEpisodeResponse} from "./types"
 
 const getEpisode = async (
-    token: User["token"],
+    token: AuthenticatedUser["token"],
     episodeId: Episode["id"],
 ): Promise<Episode> => {
     const response = await fetch(`${API_URL}/episodes/${episodeId}`, {

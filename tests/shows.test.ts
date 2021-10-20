@@ -13,7 +13,7 @@ import {
     mockGetShowEpisodesResponse,
     mockGetShowResponse,
     mockShow,
-} from "./utils/mocks"
+} from "./mocks"
 
 describe("shows", () => {
     test("gets show", async () => {

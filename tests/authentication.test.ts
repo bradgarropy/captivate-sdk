@@ -1,7 +1,7 @@
 import fetch from "jest-fetch-mock"
 
 import {authenticateUser} from "../src/authentication"
-import {mockAuthenticateUserResponse, mockUser} from "./utils/mocks"
+import {mockAuthenticatedUser, mockAuthenticateUserResponse} from "./mocks"
 
 describe("authentication", () => {
     beforeEach(() => {
@@ -10,6 +10,6 @@ describe("authentication", () => {
 
     test("authenticates user", async () => {
         const result = await authenticateUser("userId", "apiKey")
-        expect(result).toEqual(mockUser)
+        expect(result).toEqual(mockAuthenticatedUser)
     })
 })

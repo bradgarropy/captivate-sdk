@@ -2,15 +2,15 @@ import fetch from "node-fetch"
 
 import {API_URL} from "./constants"
 import {
+    AuthenticatedUser,
     Episode,
     GetShowEpisodesResponse,
     GetShowResponse,
     Show,
-    User,
 } from "./types"
 
 const getShow = async (
-    token: User["token"],
+    token: AuthenticatedUser["token"],
     showId: Show["id"],
 ): Promise<Show> => {
     const response = await fetch(`${API_URL}/shows/${showId}`, {
@@ -34,7 +34,7 @@ const updateShowArtwork = () => {
 }
 
 const getShowEpisodes = async (
-    token: User["token"],
+    token: AuthenticatedUser["token"],
     showId: Show["id"],
 ): Promise<Episode[]> => {
     const response = await fetch(`${API_URL}/shows/${showId}/episodes`, {

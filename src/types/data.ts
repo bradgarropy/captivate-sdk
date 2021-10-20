@@ -1,23 +1,45 @@
-type Response = {
-    _links: {
-        self: {
-            href: string
-        }
-    }
+type AuthenticatedUser = Pick<
+    User,
+    | "id"
+    | "email"
+    | "status"
+    | "admin"
+    | "first_name"
+    | "last_name"
+    | "default_show"
+    | "default_show_order"
+    | "created"
+    | "profile_picture"
+> & {
+    token: string
 }
 
 type User = {
-    id: string
-    email: string
-    status: string
+    additional_label_1: string
+    additional_url_1: string
     admin: boolean
-    first_name: string
-    last_name: string
+    biography: string
+    created: string
     default_show: string
     default_show_order: string
-    created: string
+    email: string
+    fb_group_url: string
+    fb_id: string
+    fb_page_url: string
+    first_name: string
+    google_id: string
+    id: string
+    insta_username: string
+    last_login: string
+    last_name: string
+    last_updated: string
+    linkedin_url: string
+    onboarded: boolean
     profile_picture: string
-    token: string
+    pw_id: string
+    status: string
+    twitter_username: string
+    youtube_url: string
 }
 
 type Show = {
@@ -161,32 +183,4 @@ type Episode = {
     network_id: string
 }
 
-type AuthenticateUserResponse = {
-    user: User
-}
-
-type GetShowResponse = Response & {
-    success: boolean
-    show: Show
-}
-
-type GetShowEpisodesResponse = Response & {
-    count: number
-    episodes: Episode[]
-}
-
-type GetEpisodeResponse = Response & {
-    success: boolean
-    episode: Episode
-}
-
-export type {
-    AuthenticateUserResponse,
-    Episode,
-    GetEpisodeResponse,
-    GetShowEpisodesResponse,
-    GetShowResponse,
-    Response,
-    Show,
-    User,
-}
+export type {AuthenticatedUser, Episode, Show, User}

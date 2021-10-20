@@ -2,12 +2,12 @@ import FormData from "form-data"
 import fetch from "node-fetch"
 
 import {API_URL} from "./constants"
-import {AuthenticateUserResponse, User} from "./types"
+import {AuthenticatedUser, AuthenticateUserResponse} from "./types"
 
 const authenticateUser = async (
     userId: string,
     apiKey: string,
-): Promise<User> => {
+): Promise<AuthenticatedUser> => {
     const form = new FormData()
 
     form.append("username", userId)

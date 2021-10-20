@@ -2,14 +2,17 @@ import fetch from "jest-fetch-mock"
 
 import Captivate from "../src"
 import {
+    mockAuthenticatedUser,
     mockAuthenticateUserResponse,
     mockEpisode,
     mockGetEpisodeResponse,
     mockGetShowEpisodesResponse,
     mockGetShowResponse,
+    mockGetUserResponse,
+    mockGetUsersShowsResponse,
     mockShow,
     mockUser,
-} from "./utils/mocks"
+} from "./mocks"
 
 const captivate = new Captivate("userId", "apiKey")
 
@@ -33,8 +36,8 @@ describe("authentication", () => {
 
     test("authenticates user", async () => {
         const result = await captivate.authentication.authenticateUser()
-        expect(result).toEqual(mockUser)
-        expect(captivate.token).toEqual(mockUser.token)
+        expect(result).toEqual(mockAuthenticatedUser)
+        expect(captivate.token).toEqual(mockAuthenticatedUser.token)
     })
 })
 
@@ -47,14 +50,18 @@ describe("users", () => {
         fetch.resetMocks()
     })
 
-    test("gets user", () => {
-        const result = captivate.users.getUser()
-        expect(result).toBeUndefined()
+    test("gets user", async () => {
+        fetch.mockResponseOnce(JSON.stringify(mockGetUserResponse))
+
+        const result = await captivate.users.getUser("abc123")
+        expect(result).toEqual(mockUser)
     })
 
-    test("gets users shows", () => {
-        const result = captivate.users.getUsersShows()
-        expect(result).toBeUndefined()
+    test("gets users shows", async () => {
+        fetch.mockResponseOnce(JSON.stringify(mockGetUsersShowsResponse))
+
+        const result = await captivate.users.getUsersShows("abc123")
+        expect(result).toEqual([mockShow])
     })
 
     test("gets users managed shows", () => {

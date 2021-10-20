@@ -1,13 +1,4 @@
-import {
-    AuthenticateUserResponse,
-    Episode,
-    GetEpisodeResponse,
-    GetShowEpisodesResponse,
-    GetShowResponse,
-    Response,
-    Show,
-    User,
-} from "../../src/types"
+import {AuthenticatedUser, Episode, Response, Show, User} from "../../src/types"
 
 const mockResponse: Response = {
     _links: {
@@ -17,7 +8,7 @@ const mockResponse: Response = {
     },
 }
 
-const mockUser: User = {
+const mockAuthenticatedUser: AuthenticatedUser = {
     id: "abc123",
     email: "testuser@gmail.com",
     status: "active",
@@ -29,6 +20,34 @@ const mockUser: User = {
     created: "2021-10-31T00:00:00.000Z",
     profile_picture: "https://captivate.fm/user",
     token: "xyz123",
+}
+
+const mockUser: User = {
+    additional_label_1: "",
+    additional_url_1: "",
+    admin: false,
+    biography: "",
+    created: "2021-10-31T00:00:00.000Z",
+    default_show: "abc123",
+    default_show_order: "",
+    email: "testuser@gmail.com",
+    fb_group_url: "",
+    fb_id: "",
+    fb_page_url: "",
+    first_name: "Test",
+    google_id: "",
+    id: "abc123",
+    insta_username: "",
+    last_login: "",
+    last_name: "User",
+    last_updated: "",
+    linkedin_url: "",
+    onboarded: true,
+    profile_picture: "https://captivate.fm/user",
+    pw_id: "",
+    status: "active",
+    twitter_username: "",
+    youtube_url: "",
 }
 
 const mockShow: Show = {
@@ -172,34 +191,4 @@ const mockEpisode: Episode = {
     network_id: "",
 }
 
-const mockAuthenticateUserResponse: AuthenticateUserResponse = {
-    user: mockUser,
-}
-
-const mockGetShowResponse: GetShowResponse = {
-    ...mockResponse,
-    success: true,
-    show: mockShow,
-}
-
-const mockGetEpisodeResponse: GetEpisodeResponse = {
-    ...mockResponse,
-    success: true,
-    episode: mockEpisode,
-}
-
-const mockGetShowEpisodesResponse: GetShowEpisodesResponse = {
-    ...mockResponse,
-    count: 1,
-    episodes: [mockEpisode],
-}
-
-export {
-    mockAuthenticateUserResponse,
-    mockEpisode,
-    mockGetEpisodeResponse,
-    mockGetShowEpisodesResponse,
-    mockGetShowResponse,
-    mockShow,
-    mockUser,
-}
+export {mockAuthenticatedUser, mockEpisode, mockResponse, mockShow, mockUser}

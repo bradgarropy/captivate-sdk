@@ -54,13 +54,29 @@ Authenticate a user to the [Captivate API][captivate-api].
 captivate.authentication.authenticateUser()
 ```
 
-### `captivate.users.getUser()`
+### `captivate.users.getUser(userId)`
 
-_// TODO_
+| Name     | Type     | Example    | Description |
+| -------- | -------- | ---------- | ----------- |
+| `userId` | `string` | `"abc123"` | User id.    |
 
-### `captivate.users.getUsersShows()`
+Get a user.
 
-_// TODO_
+```javascript
+captivate.users.getUser("abc123")
+```
+
+### `captivate.users.getUsersShows(userId)`
+
+| Name     | Type     | Example    | Description |
+| -------- | -------- | ---------- | ----------- |
+| `userId` | `string` | `"abc123"` | User id.    |
+
+Get a list of podcasts that a user belongs to.
+
+```javascript
+captivate.users.getUsersShows("abc123")
+```
 
 ### `captivate.users.getUsersManagedShows()`
 

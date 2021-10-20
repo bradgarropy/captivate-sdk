@@ -1,12 +1,13 @@
 import {authenticateUser} from "./authentication"
 import {getEpisode} from "./episodes"
 import {getShow, getShowEpisodes} from "./shows"
-import {Episode, Show, User} from "./types"
+import {AuthenticatedUser, Episode, Show, User} from "./types"
+import {getUser, getUsersShows} from "./users"
 
 class Captivate {
     userId: string
     apiKey: string
-    token: User["token"] | null
+    token: AuthenticatedUser["token"] | null
 
     constructor(userId: string, apiKey: string) {
         this.userId = userId
@@ -15,19 +16,29 @@ class Captivate {
     }
 
     authentication = {
-        authenticateUser: async (): Promise<User> => {
-            const user = await authenticateUser(this.userId, this.apiKey)
-            this.token = user.token
-            return user
+        authenticateUser: async (): Promise<AuthenticatedUser> => {
+            const authenticatedUser = await authenticateUser(
+                this.userId,
+                this.apiKey,
+            )
+
+            this.token = authenticatedUser.token
+            return authenticatedUser
         },
     }
 
     users = {
-        getUser: () => {
-            // TODO
+        getUser: async (userId: User["id"]): Promise<User> => {
+            await this.authentication.authenticateUser()
+
+            const user = await getUser(this.token as string, userId)
+            return user
         },
-        getUsersShows: () => {
-            // TODO
+        getUsersShows: async (userId: User["id"]): Promise<Show[]> => {
+            await this.authentication.authenticateUser()
+
+            const shows = await getUsersShows(this.token as string, userId)
+            return shows
         },
         getUsersManagedShows: () => {
             // TODO

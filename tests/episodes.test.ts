@@ -1,7 +1,7 @@
 import fetch from "jest-fetch-mock"
 
 import {createEpisode, getEpisode, updateEpisode} from "../src/episodes"
-import {mockEpisode, mockGetEpisodeResponse} from "./utils/mocks"
+import {mockEpisode, mockGetEpisodeResponse} from "./mocks"
 
 describe("episodes", () => {
     test("gets episode", async () => {
