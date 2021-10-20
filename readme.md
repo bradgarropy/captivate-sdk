@@ -27,8 +27,8 @@ Start off by creating a `Captivate` client, then authenticate to the [Captivate 
 ```javascript
 const captivate = new Captivate("abc123", "123456789")
 
-const show = await captivate.getShow("abc123")
-const episode = await captivate.getEpisode("xyz123")
+const show = await captivate.shows.getShow("abc123")
+const episode = await captivate.episodes.getEpisode("xyz123")
 ```
 
 ## 📖 API Reference
@@ -46,15 +46,27 @@ Create a `Captivate` client.
 const captivate = new Captivate("abc123", "123456789")
 ```
 
-### `captivate.authenticateUser()`
+### `captivate.authentication.authenticateUser()`
 
 Authenticate a user to the [Captivate API][captivate-api].
 
 ```javascript
-captivate.authenticateUser()
+captivate.authentication.authenticateUser()
 ```
 
-### `captivate.getShow(showId)`
+### `captivate.users.getUser()`
+
+_// TODO_
+
+### `captivate.users.getUsersShows()`
+
+_// TODO_
+
+### `captivate.users.getUsersManagedShows()`
+
+_// TODO_
+
+### `captivate.shows.getShow(showId)`
 
 | Name     | Type     | Example    | Description      |
 | -------- | -------- | ---------- | ---------------- |
@@ -63,10 +75,18 @@ captivate.authenticateUser()
 Get a podcast.
 
 ```javascript
-captivate.getShow("abc123")
+captivate.shows.getShow("abc123")
 ```
 
-### `captivate.getShowEpisodes(showId)`
+### `captivate.shows.updateShow()`
+
+_// TODO_
+
+### `captivate.shows.updateShowArtwork()`
+
+_// TODO_
+
+### `captivate.shows.getShowEpisodes(showId)`
 
 | Name     | Type     | Example    | Description      |
 | -------- | -------- | ---------- | ---------------- |
@@ -75,10 +95,34 @@ captivate.getShow("abc123")
 Get all episodes from a podcast.
 
 ```javascript
-captivate.getShowEpisodes("abc123")
+captivate.shows.getShowEpisodes("abc123")
 ```
 
-### `captivate.getEpisode(episodeId)`
+### `captivate.shows.getShowScheduledEpisodes()`
+
+_// TODO_
+
+### `captivate.shows.getShowFeedUrl()`
+
+_// TODO_
+
+### `captivate.media.getMedia()`
+
+_// TODO_
+
+### `captivate.media.uploadMedia()`
+
+_// TODO_
+
+### `captivate.media.getShowMedia()`
+
+_// TODO_
+
+### `captivate.media.searchShowMedia()`
+
+_// TODO_
+
+### `captivate.episodes.getEpisode(episodeId)`
 
 | Name        | Type     | Example    | Description         |
 | ----------- | -------- | ---------- | ------------------- |
@@ -87,8 +131,16 @@ captivate.getShowEpisodes("abc123")
 Get a podcast episode.
 
 ```javascript
-captivate.getEpisode("xyz123")
+captivate.episodes.getEpisode("xyz123")
 ```
+
+### `captivate.episodes.createEpisode()`
+
+_// TODO_
+
+### `captivate.episodes.updateEpisode()`
+
+_// TODO_
 
 ## ❔ Questions
 

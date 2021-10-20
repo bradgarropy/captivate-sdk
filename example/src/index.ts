@@ -12,14 +12,14 @@ const captivate = new Captivate(
     process.env.CAPTIVATE_API_KEY as string,
 )
 
-captivate.getShow(SHOW_ID).then(show => {
+captivate.shows.getShow(SHOW_ID).then(show => {
     console.log(show)
 })
 
-captivate.getShowEpisodes(SHOW_ID).then(episodes => {
+captivate.shows.getShowEpisodes(SHOW_ID).then(episodes => {
     console.log(episodes)
 })
 
-captivate.getEpisode(EPISODE_ID).then(episode => {
+captivate.episodes.getEpisode(EPISODE_ID).then(episode => {
     console.log(episode)
 })

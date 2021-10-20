@@ -1,22 +1,12 @@
-import FormData from "form-data"
-import fetch from "node-fetch"
-
-import {
-    AuthenticateUserResponse,
-    Episode,
-    GetEpisodeResponse,
-    GetShowEpisodesResponse,
-    GetShowResponse,
-    Show,
-    User,
-} from "./types"
+import {authenticateUser} from "./authentication"
+import {getEpisode} from "./episodes"
+import {getShow, getShowEpisodes} from "./shows"
+import {Episode, Show, User} from "./types"
 
 class Captivate {
     userId: string
     apiKey: string
     token: User["token"] | null
-
-    private API_URL = "https://api.captivate.fm"
 
     constructor(userId: string, apiKey: string) {
         this.userId = userId
@@ -24,72 +14,81 @@ class Captivate {
         this.token = null
     }
 
-    authenticateUser = async (): Promise<User> => {
-        const form = new FormData()
-
-        form.append("username", this.userId)
-        form.append("token", this.apiKey)
-
-        const response = await fetch(`${this.API_URL}/authenticate/token`, {
-            method: "POST",
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            body: form,
-            redirect: "follow",
-        })
-
-        const json: AuthenticateUserResponse = await response.json()
-        this.token = json.user.token
-
-        return json.user
+    authentication = {
+        authenticateUser: async (): Promise<User> => {
+            const user = await authenticateUser(this.userId, this.apiKey)
+            this.token = user.token
+            return user
+        },
     }
 
-    getShow = async (showId: Show["id"]): Promise<Show> => {
-        await this.authenticateUser()
-
-        const response = await fetch(`${this.API_URL}/shows/${showId}`, {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${this.token}`,
-            },
-            redirect: "follow",
-        })
-
-        const json: GetShowResponse = await response.json()
-        return json.show
+    users = {
+        getUser: () => {
+            // TODO
+        },
+        getUsersShows: () => {
+            // TODO
+        },
+        getUsersManagedShows: () => {
+            // TODO
+        },
     }
 
-    getShowEpisodes = async (showId: Show["id"]): Promise<Episode[]> => {
-        await this.authenticateUser()
+    shows = {
+        getShow: async (showId: Show["id"]): Promise<Show> => {
+            await this.authentication.authenticateUser()
 
-        const response = await fetch(
-            `${this.API_URL}/shows/${showId}/episodes`,
-            {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${this.token}`,
-                },
-                redirect: "follow",
-            },
-        )
+            const show = await getShow(this.token as string, showId)
+            return show
+        },
+        updateShow: () => {
+            // TODO
+        },
+        updateShowArtwork: () => {
+            // TODO
+        },
+        getShowEpisodes: async (showId: Show["id"]): Promise<Episode[]> => {
+            await this.authentication.authenticateUser()
 
-        const json: GetShowEpisodesResponse = await response.json()
-        return json.episodes
+            const episodes = await getShowEpisodes(this.token as string, showId)
+            return episodes
+        },
+        getShowScheduledEpisodes: () => {
+            // TODO
+        },
+        getShowFeedUrl: () => {
+            // TODO
+        },
     }
 
-    getEpisode = async (episodeId: Episode["id"]): Promise<Episode> => {
-        await this.authenticateUser()
+    media = {
+        getMedia: () => {
+            // TODO
+        },
+        uploadMedia: () => {
+            // TODO
+        },
+        getShowMedia: () => {
+            // TODO
+        },
+        searchShowMedia: () => {
+            // TODO
+        },
+    }
 
-        const response = await fetch(`${this.API_URL}/episodes/${episodeId}`, {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${this.token}`,
-            },
-            redirect: "follow",
-        })
+    episodes = {
+        getEpisode: async (episodeId: Episode["id"]): Promise<Episode> => {
+            await this.authentication.authenticateUser()
 
-        const json: GetEpisodeResponse = await response.json()
-        return json.episode
+            const episode = await getEpisode(this.token as string, episodeId)
+            return episode
+        },
+        createEpisode: () => {
+            // TODO
+        },
+        updateEpisode: () => {
+            // TODO
+        },
     }
 }
 
