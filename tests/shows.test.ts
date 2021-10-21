@@ -12,6 +12,8 @@ import {
     mockEpisode,
     mockGetShowEpisodesResponse,
     mockGetShowResponse,
+    mockGetShowScheduledEpisodesResponse,
+    mockScheduledEpisode,
     mockShow,
 } from "./mocks"
 
@@ -45,9 +47,13 @@ describe("shows", () => {
         expect(result).toEqual([mockEpisode])
     })
 
-    test("gets show schedules episodes", () => {
-        const result = getShowScheduledEpisodes()
-        expect(result).toBeUndefined()
+    test("gets show schedules episodes", async () => {
+        fetch.mockResponseOnce(
+            JSON.stringify(mockGetShowScheduledEpisodesResponse),
+        )
+
+        const result = await getShowScheduledEpisodes("token", "abc123")
+        expect(result).toEqual([mockScheduledEpisode])
     })
 
     test("gets show feed url", () => {

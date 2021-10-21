@@ -1,4 +1,11 @@
-import {AuthenticatedUser, Episode, ManagedShow, Show, User} from "./data"
+import {
+    AuthenticatedUser,
+    Episode,
+    ManagedShow,
+    ScheduledEpisode,
+    Show,
+    User,
+} from "./data"
 
 type Response = {
     _links: {
@@ -41,11 +48,17 @@ type GetUsersManagedShowsResponse = Response & {
     show_user: ManagedShow[]
 }
 
+type GetShowScheduledEpisodesResponse = Response & {
+    count: number
+    episodes: ScheduledEpisode[]
+}
+
 export type {
     AuthenticateUserResponse,
     GetEpisodeResponse,
     GetShowEpisodesResponse,
     GetShowResponse,
+    GetShowScheduledEpisodesResponse,
     GetUserResponse,
     GetUsersManagedShowsResponse,
     GetUsersShowsResponse,
