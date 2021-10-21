@@ -191,4 +191,58 @@ type Episode = {
     network_id: string
 }
 
-export type {AuthenticatedUser, Episode, ManagedShow, Show, User}
+type ScheduledEpisode = Pick<
+    Episode,
+    | "id"
+    | "shows_id"
+    | "media_id"
+    | "title"
+    | "itunes_title"
+    | "published_date"
+    | "guid"
+    | "status"
+    | "episode_art"
+    | "shownotes"
+    | "summary"
+    | "episode_type"
+    | "episode_season"
+    | "episode_number"
+    | "itunes_subtitle"
+    | "author"
+    | "link"
+    | "explicit"
+    | "itunes_block"
+    | "google_block"
+    | "google_description"
+    | "donation_link"
+    | "donation_text"
+    | "post_id"
+    | "website_title"
+    | "is_active"
+    | "failed_import"
+    | "slug"
+    | "seo_title"
+    | "seo_description"
+    | "episode_private"
+    | "episode_expiration"
+    | "auto_tweeted"
+    | "video_repurposed"
+    | "video_s3_key"
+    | "import_errors"
+    | "transcription_html"
+    | "transcription_file"
+    | "transcription_json"
+    | "transcription_text"
+    | "media_url"
+    | "amie_status"
+    | "original_media_id"
+>
+
+export type {
+    AuthenticatedUser,
+    Episode,
+    ManagedShow,
+    ScheduledEpisode,
+    Show,
+    User,
+}

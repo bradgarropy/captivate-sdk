@@ -1,3 +1,4 @@
+import {ScheduledEpisode} from "."
 import {AuthenticatedUser, Episode, ManagedShow, Show, User} from "./data"
 
 type Response = {
@@ -41,11 +42,17 @@ type GetUsersManagedShowsResponse = Response & {
     show_user: ManagedShow[]
 }
 
+type GetShowScheduledEpisodesResponse = Response & {
+    count: number
+    episodes: ScheduledEpisode[]
+}
+
 export type {
     AuthenticateUserResponse,
     GetEpisodeResponse,
     GetShowEpisodesResponse,
     GetShowResponse,
+    GetShowScheduledEpisodesResponse,
     GetUserResponse,
     GetUsersManagedShowsResponse,
     GetUsersShowsResponse,
