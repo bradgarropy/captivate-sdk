@@ -1,7 +1,14 @@
 import {authenticateUser} from "./authentication"
 import {getEpisode} from "./episodes"
-import {getShow, getShowEpisodes} from "./shows"
-import {AuthenticatedUser, Episode, ManagedShow, Show, User} from "./types"
+import {getShow, getShowEpisodes, getShowScheduledEpisodes} from "./shows"
+import {
+    AuthenticatedUser,
+    Episode,
+    ManagedShow,
+    ScheduledEpisode,
+    Show,
+    User,
+} from "./types"
 import {getUser, getUsersManagedShows, getUsersShows} from "./users"
 
 class Captivate {
@@ -73,8 +80,17 @@ class Captivate {
             const episodes = await getShowEpisodes(this.token as string, showId)
             return episodes
         },
-        getShowScheduledEpisodes: () => {
-            // TODO
+        getShowScheduledEpisodes: async (
+            showId: Show["id"],
+        ): Promise<ScheduledEpisode[]> => {
+            await this.authentication.authenticateUser()
+
+            const scheduledEpisodes = await getShowScheduledEpisodes(
+                this.token as string,
+                showId,
+            )
+
+            return scheduledEpisodes
         },
         getShowFeedUrl: () => {
             // TODO
