@@ -12,6 +12,12 @@
 
 _[Captivate][captivate] JavaScript SDK for retrieving podcast information._
 
+<p align="center">
+    <a href="https://www.npmjs.com/package/@bradgarropy/next-seo">
+        <img alt="next link" src="./images/github.png" width="500">
+    </a>
+</p>
+
 ## 📦 Installation
 
 This package is hosted on [npm][npm].
