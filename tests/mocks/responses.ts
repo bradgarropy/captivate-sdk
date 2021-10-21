@@ -4,11 +4,13 @@ import {
     GetShowEpisodesResponse,
     GetShowResponse,
     GetUserResponse,
+    GetUsersManagedShowsResponse,
     GetUsersShowsResponse,
 } from "../../src/types"
 import {
     mockAuthenticatedUser,
     mockEpisode,
+    mockManagedShow,
     mockResponse,
     mockShow,
     mockUser,
@@ -47,11 +49,18 @@ const mockGetUsersShowsResponse: GetUsersShowsResponse = {
     shows: [mockShow],
 }
 
+const mockGetUsersManagedShowsResponse: GetUsersManagedShowsResponse = {
+    ...mockResponse,
+    success: true,
+    show_user: [mockManagedShow],
+}
+
 export {
     mockAuthenticateUserResponse,
     mockGetEpisodeResponse,
     mockGetShowEpisodesResponse,
     mockGetShowResponse,
     mockGetUserResponse,
+    mockGetUsersManagedShowsResponse,
     mockGetUsersShowsResponse,
 }

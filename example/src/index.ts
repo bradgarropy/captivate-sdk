@@ -22,13 +22,17 @@ const captivate = new Captivate(
 //     console.log(user)
 // })
 
-captivate.users
-    .getUsersShows(process.env.CAPTIVATE_USER_ID as string)
-    .then(shows => {
-        console.log(shows)
-    })
+// captivate.users
+//     .getUsersShows(process.env.CAPTIVATE_USER_ID as string)
+//     .then(shows => {
+//         console.log(shows)
+//     })
 
-// captivate.users.getUsersManagedShows()
+captivate.users
+    .getUsersManagedShows(process.env.CAPTIVATE_USER_ID as string)
+    .then(managedShows => {
+        console.log(managedShows)
+    })
 
 // shows
 
