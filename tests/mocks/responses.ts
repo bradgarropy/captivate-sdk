@@ -3,6 +3,7 @@ import {
     GetEpisodeResponse,
     GetShowEpisodesResponse,
     GetShowResponse,
+    GetShowScheduledEpisodesResponse,
     GetUserResponse,
     GetUsersManagedShowsResponse,
     GetUsersShowsResponse,
@@ -12,6 +13,7 @@ import {
     mockEpisode,
     mockManagedShow,
     mockResponse,
+    mockScheduledEpisode,
     mockShow,
     mockUser,
 } from "./data"
@@ -55,11 +57,18 @@ const mockGetUsersManagedShowsResponse: GetUsersManagedShowsResponse = {
     show_user: [mockManagedShow],
 }
 
+const mockGetShowScheduledEpisodesResponse: GetShowScheduledEpisodesResponse = {
+    ...mockResponse,
+    count: 1,
+    episodes: [mockScheduledEpisode],
+}
+
 export {
     mockAuthenticateUserResponse,
     mockGetEpisodeResponse,
     mockGetShowEpisodesResponse,
     mockGetShowResponse,
+    mockGetShowScheduledEpisodesResponse,
     mockGetUserResponse,
     mockGetUsersManagedShowsResponse,
     mockGetUsersShowsResponse,
