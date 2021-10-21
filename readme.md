@@ -128,9 +128,17 @@ Get all episodes from a podcast.
 captivate.shows.getShowEpisodes("abc123")
 ```
 
-### `captivate.shows.getShowScheduledEpisodes()`
+### `captivate.shows.getShowScheduledEpisodes(showId)`
 
-_// TODO_
+| Name     | Type     | Example    | Description      |
+| -------- | -------- | ---------- | ---------------- |
+| `showId` | `string` | `"abc123"` | Podcast show id. |
+
+Get all scheduled episodes from a podcast.
+
+```javascript
+captivate.shows.getShowScheduledEpisodes("abc123")
+```
 
 ### `captivate.shows.getShowFeedUrl()`
 
