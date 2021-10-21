@@ -78,9 +78,17 @@ Get a list of podcasts that a user belongs to.
 captivate.users.getUsersShows("abc123")
 ```
 
-### `captivate.users.getUsersManagedShows()`
+### `captivate.users.getUsersManagedShows(userId)`
 
-_// TODO_
+| Name     | Type     | Example    | Description |
+| -------- | -------- | ---------- | ----------- |
+| `userId` | `string` | `"abc123"` | User id.    |
+
+Get a list of podcasts that a user manages.
+
+```javascript
+captivate.users.getUsersManagedShows("abc123")
+```
 
 ### `captivate.shows.getShow(showId)`
 

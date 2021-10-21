@@ -4,7 +4,9 @@ import {API_URL} from "./constants"
 import {
     AuthenticatedUser,
     GetUserResponse,
+    GetUsersManagedShowsResponse,
     GetUsersShowsResponse,
+    ManagedShow,
     Show,
     User,
 } from "./types"
@@ -41,8 +43,20 @@ const getUsersShows = async (
     return json.shows
 }
 
-const getUsersManagedShows = () => {
-    // TODO
+const getUsersManagedShows = async (
+    token: AuthenticatedUser["token"],
+    userId: User["id"],
+): Promise<ManagedShow[]> => {
+    const response = await fetch(`${API_URL}/users/${userId}/shows/manager`, {
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+        redirect: "follow",
+    })
+
+    const json: GetUsersManagedShowsResponse = await response.json()
+    return json.show_user
 }
 
 export {getUser, getUsersManagedShows, getUsersShows}

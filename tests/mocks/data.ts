@@ -1,4 +1,11 @@
-import {AuthenticatedUser, Episode, Response, Show, User} from "../../src/types"
+import {
+    AuthenticatedUser,
+    Episode,
+    ManagedShow,
+    Response,
+    Show,
+    User,
+} from "../../src/types"
 
 const mockResponse: Response = {
     _links: {
@@ -191,4 +198,23 @@ const mockEpisode: Episode = {
     network_id: "",
 }
 
-export {mockAuthenticatedUser, mockEpisode, mockResponse, mockShow, mockUser}
+const mockManagedShow: ManagedShow = {
+    id: "abc123",
+    artwork: "https://captivate.fm",
+    author: "Test Author",
+    status: "active",
+    title: "Test Episode",
+    role: "owner",
+    is_active: true,
+    import: "",
+    created: "2021-10-31T00:00:00.000Z",
+}
+
+export {
+    mockAuthenticatedUser,
+    mockEpisode,
+    mockManagedShow,
+    mockResponse,
+    mockShow,
+    mockUser,
+}

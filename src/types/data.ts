@@ -42,6 +42,14 @@ type User = {
     youtube_url: string
 }
 
+type ManagedShow = Pick<
+    Show,
+    "id" | "artwork" | "author" | "status" | "title" | "import" | "created"
+> & {
+    role: string
+    is_active: boolean
+}
+
 type Show = {
     id: string
     created: string
@@ -183,4 +191,4 @@ type Episode = {
     network_id: string
 }
 
-export type {AuthenticatedUser, Episode, Show, User}
+export type {AuthenticatedUser, Episode, ManagedShow, Show, User}

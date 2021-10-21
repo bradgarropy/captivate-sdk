@@ -1,8 +1,8 @@
 import {authenticateUser} from "./authentication"
 import {getEpisode} from "./episodes"
 import {getShow, getShowEpisodes} from "./shows"
-import {AuthenticatedUser, Episode, Show, User} from "./types"
-import {getUser, getUsersShows} from "./users"
+import {AuthenticatedUser, Episode, ManagedShow, Show, User} from "./types"
+import {getUser, getUsersManagedShows, getUsersShows} from "./users"
 
 class Captivate {
     userId: string
@@ -40,8 +40,17 @@ class Captivate {
             const shows = await getUsersShows(this.token as string, userId)
             return shows
         },
-        getUsersManagedShows: () => {
-            // TODO
+        getUsersManagedShows: async (
+            userId: User["id"],
+        ): Promise<ManagedShow[]> => {
+            await this.authentication.authenticateUser()
+
+            const shows = await getUsersManagedShows(
+                this.token as string,
+                userId,
+            )
+
+            return shows
         },
     }
 
