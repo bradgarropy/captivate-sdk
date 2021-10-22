@@ -1,6 +1,7 @@
 import {
     AuthenticatedUser,
     Episode,
+    Feed,
     ManagedShow,
     Response,
     ScheduledEpisode,
@@ -257,9 +258,12 @@ const mockManagedShow: ManagedShow = {
     created: "2021-10-31T00:00:00.000Z",
 }
 
+const mockFeed: Feed = "https://captivate.fm/feed"
+
 export {
     mockAuthenticatedUser,
     mockEpisode,
+    mockFeed,
     mockManagedShow,
     mockResponse,
     mockScheduledEpisode,
