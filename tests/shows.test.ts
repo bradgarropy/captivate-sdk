@@ -10,7 +10,9 @@ import {
 } from "../src/shows"
 import {
     mockEpisode,
+    mockFeed,
     mockGetShowEpisodesResponse,
+    mockGetShowFeedUrlResponse,
     mockGetShowResponse,
     mockGetShowScheduledEpisodesResponse,
     mockScheduledEpisode,
@@ -56,8 +58,10 @@ describe("shows", () => {
         expect(result).toEqual([mockScheduledEpisode])
     })
 
-    test("gets show feed url", () => {
-        const result = getShowFeedUrl()
-        expect(result).toBeUndefined()
+    test("gets show feed url", async () => {
+        fetch.mockResponseOnce(JSON.stringify(mockGetShowFeedUrlResponse))
+
+        const result = await getShowFeedUrl("token", "abc123")
+        expect(result).toEqual(mockFeed)
     })
 })
