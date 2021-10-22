@@ -7,6 +7,7 @@ import {
     mockEpisode,
     mockFeed,
     mockGetEpisodeResponse,
+    mockGetMediaResponse,
     mockGetShowEpisodesResponse,
     mockGetShowFeedUrlResponse,
     mockGetShowResponse,
@@ -15,6 +16,7 @@ import {
     mockGetUsersManagedShowsResponse,
     mockGetUsersShowsResponse,
     mockManagedShow,
+    mockMedia,
     mockScheduledEpisode,
     mockShow,
     mockUser,
@@ -140,9 +142,11 @@ describe("media", () => {
         fetch.resetMocks()
     })
 
-    test("gets media", () => {
-        const result = captivate.media.getMedia()
-        expect(result).toBeUndefined()
+    test("gets media", async () => {
+        fetch.mockResponseOnce(JSON.stringify(mockGetMediaResponse))
+
+        const result = await captivate.media.getMedia(mockMedia.id)
+        expect(result).toEqual(mockMedia)
     })
 
     test("uploads media", () => {

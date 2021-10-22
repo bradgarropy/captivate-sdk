@@ -3,19 +3,11 @@ import {
     Episode,
     Feed,
     ManagedShow,
-    Response,
+    Media,
     ScheduledEpisode,
     Show,
     User,
 } from "../../src/types"
-
-const mockResponse: Response = {
-    _links: {
-        self: {
-            href: "https://captivate.fm",
-        },
-    },
-}
 
 const mockAuthenticatedUser: AuthenticatedUser = {
     id: "abc123",
@@ -260,12 +252,35 @@ const mockManagedShow: ManagedShow = {
 
 const mockFeed: Feed = "https://captivate.fm/feed"
 
+const mockMedia: Media = {
+    id: "abc123",
+    users_id: "def123",
+    shows_id: "xyz123",
+    media_name: "Test Media",
+    media_size: "1MB",
+    media_bit_rate: "",
+    media_id3_size: "",
+    media_type: "",
+    media_url: "https://captivate.fm",
+    media_duration: "",
+    created_at: "2021-10-31T00:00:00.000Z",
+    updated_at: "2021-10-31T00:00:00.000Z",
+    is_active: true,
+    previously_assigned_episode: "",
+    type: "audio",
+    stackpath_rule_id: "",
+    original_media_id: "",
+    media_slot_type_id: "",
+    amie_job_id: "",
+    amie_status: "",
+}
+
 export {
     mockAuthenticatedUser,
     mockEpisode,
     mockFeed,
     mockManagedShow,
-    mockResponse,
+    mockMedia,
     mockScheduledEpisode,
     mockShow,
     mockUser,

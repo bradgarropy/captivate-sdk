@@ -240,11 +240,35 @@ type ScheduledEpisode = Pick<
 
 type Feed = string
 
+type Media = {
+    id: string
+    users_id: string
+    shows_id: string
+    media_name: string
+    media_size: string
+    media_bit_rate: string
+    media_id3_size: string
+    media_type: string
+    media_url: string
+    media_duration: string
+    created_at: string
+    updated_at: string
+    is_active: boolean
+    previously_assigned_episode: string
+    type: string
+    stackpath_rule_id: string
+    original_media_id: string
+    media_slot_type_id: string
+    amie_job_id: string
+    amie_status: string
+}
+
 export type {
     AuthenticatedUser,
     Episode,
     Feed,
     ManagedShow,
+    Media,
     ScheduledEpisode,
     Show,
     User,

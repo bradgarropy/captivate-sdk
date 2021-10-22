@@ -1,6 +1,8 @@
 import {
+    Actions,
     AuthenticateUserResponse,
     GetEpisodeResponse,
+    GetMediaResponse,
     GetShowEpisodesResponse,
     GetShowFeedUrlResponse,
     GetShowResponse,
@@ -8,71 +10,97 @@ import {
     GetUserResponse,
     GetUsersManagedShowsResponse,
     GetUsersShowsResponse,
+    Links,
 } from "../../src/types"
 import {
     mockAuthenticatedUser,
     mockEpisode,
     mockFeed,
     mockManagedShow,
-    mockResponse,
+    mockMedia,
     mockScheduledEpisode,
     mockShow,
     mockUser,
 } from "./data"
+
+const mockLinks: Links = {
+    _links: {
+        self: {
+            href: "https://captivate.fm",
+        },
+    },
+}
+
+const mockActions: Actions = {
+    actions: [
+        {
+            href: "https://captivate.fm",
+            name: "self",
+        },
+    ],
+}
 
 const mockAuthenticateUserResponse: AuthenticateUserResponse = {
     user: mockAuthenticatedUser,
 }
 
 const mockGetShowResponse: GetShowResponse = {
-    ...mockResponse,
+    ...mockLinks,
     success: true,
     show: mockShow,
 }
 
 const mockGetEpisodeResponse: GetEpisodeResponse = {
-    ...mockResponse,
+    ...mockLinks,
     success: true,
     episode: mockEpisode,
 }
 
 const mockGetShowEpisodesResponse: GetShowEpisodesResponse = {
-    ...mockResponse,
+    ...mockLinks,
     count: 1,
     episodes: [mockEpisode],
 }
 
 const mockGetUserResponse: GetUserResponse = {
-    ...mockResponse,
+    ...mockLinks,
     user: mockUser,
 }
 
 const mockGetUsersShowsResponse: GetUsersShowsResponse = {
-    ...mockResponse,
+    ...mockLinks,
     success: true,
     shows: [mockShow],
 }
 
 const mockGetUsersManagedShowsResponse: GetUsersManagedShowsResponse = {
-    ...mockResponse,
+    ...mockLinks,
     success: true,
     show_user: [mockManagedShow],
 }
 
 const mockGetShowScheduledEpisodesResponse: GetShowScheduledEpisodesResponse = {
-    ...mockResponse,
+    ...mockLinks,
     count: 1,
     episodes: [mockScheduledEpisode],
 }
 
 const mockGetShowFeedUrlResponse: GetShowFeedUrlResponse = {
-    ...mockResponse,
+    ...mockLinks,
     feed: mockFeed,
 }
 
+const mockGetMediaResponse: GetMediaResponse = {
+    ...mockActions,
+    success: true,
+    media: mockMedia,
+}
+
 export {
+    mockActions,
     mockAuthenticateUserResponse,
     mockGetEpisodeResponse,
+    mockGetMediaResponse,
     mockGetShowEpisodesResponse,
     mockGetShowFeedUrlResponse,
     mockGetShowResponse,
