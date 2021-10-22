@@ -52,8 +52,8 @@ const captivate = new Captivate(
 //     console.log(scheduledEpisodes)
 // })
 
-captivate.shows.getShowFeedUrl(SHOW_ID).then(feedUrl => {
-    console.log(feedUrl)
+captivate.shows.getShowFeedUrl(SHOW_ID).then(feed => {
+    console.log(feed)
 })
 
 // media
