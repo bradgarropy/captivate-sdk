@@ -140,9 +140,17 @@ Get all scheduled episodes from a podcast.
 captivate.shows.getShowScheduledEpisodes("abc123")
 ```
 
-### `captivate.shows.getShowFeedUrl()`
+### `captivate.shows.getShowFeedUrl(showId)`
 
-_// TODO_
+| Name     | Type     | Example    | Description      |
+| -------- | -------- | ---------- | ---------------- |
+| `showId` | `string` | `"abc123"` | Podcast show id. |
+
+Get the RSS feed URL for a podcast.
+
+```javascript
+captivate.shows.getShowFeedUrl("abc123")
+```
 
 ### `captivate.media.getMedia()`
 
