@@ -71,6 +71,13 @@ type GetMediaResponse = Actions & {
     media: Media
 }
 
+type GetShowMediaResponse = {
+    success: boolean
+    media: Media[]
+    limit: number
+    totalCount: number
+}
+
 export type {
     Actions,
     AuthenticateUserResponse,
@@ -78,6 +85,7 @@ export type {
     GetMediaResponse,
     GetShowEpisodesResponse,
     GetShowFeedUrlResponse,
+    GetShowMediaResponse,
     GetShowResponse,
     GetShowScheduledEpisodesResponse,
     GetUserResponse,

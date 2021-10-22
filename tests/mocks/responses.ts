@@ -5,6 +5,7 @@ import {
     GetMediaResponse,
     GetShowEpisodesResponse,
     GetShowFeedUrlResponse,
+    GetShowMediaResponse,
     GetShowResponse,
     GetShowScheduledEpisodesResponse,
     GetUserResponse,
@@ -96,6 +97,13 @@ const mockGetMediaResponse: GetMediaResponse = {
     media: mockMedia,
 }
 
+const mockGetShowMediaResponse: GetShowMediaResponse = {
+    success: true,
+    media: [mockMedia],
+    limit: 20,
+    totalCount: 25,
+}
+
 export {
     mockActions,
     mockAuthenticateUserResponse,
@@ -103,6 +111,7 @@ export {
     mockGetMediaResponse,
     mockGetShowEpisodesResponse,
     mockGetShowFeedUrlResponse,
+    mockGetShowMediaResponse,
     mockGetShowResponse,
     mockGetShowScheduledEpisodesResponse,
     mockGetUserResponse,
