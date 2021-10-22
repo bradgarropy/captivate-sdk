@@ -1,3 +1,5 @@
+import fetch from "node-fetch"
+
 import {API_URL} from "./constants"
 import {AuthenticatedUser, GetMediaResponse, Media} from "./types"
 
