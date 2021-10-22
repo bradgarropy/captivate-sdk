@@ -48,11 +48,13 @@ const captivate = new Captivate(
 //     console.log(episodes)
 // })
 
-captivate.shows.getShowScheduledEpisodes(SHOW_ID).then(scheduledEpisodes => {
-    console.log(scheduledEpisodes)
-})
+// captivate.shows.getShowScheduledEpisodes(SHOW_ID).then(scheduledEpisodes => {
+//     console.log(scheduledEpisodes)
+// })
 
-// captivate.shows.getShowFeedUrl()
+captivate.shows.getShowFeedUrl(SHOW_ID).then(feedUrl => {
+    console.log(feedUrl)
+})
 
 // media
 
