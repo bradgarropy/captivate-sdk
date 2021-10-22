@@ -3,12 +3,13 @@ import {
     Episode,
     Feed,
     ManagedShow,
+    Media,
     ScheduledEpisode,
     Show,
     User,
 } from "./data"
 
-type Response = {
+type Links = {
     _links: {
         self: {
             href: string
@@ -16,51 +17,65 @@ type Response = {
     }
 }
 
+type Actions = {
+    actions: Array<{
+        href: string
+        name: string
+    }>
+}
+
 type AuthenticateUserResponse = {
     user: AuthenticatedUser
 }
 
-type GetShowResponse = Response & {
+type GetShowResponse = Links & {
     success: boolean
     show: Show
 }
 
-type GetShowEpisodesResponse = Response & {
+type GetShowEpisodesResponse = Links & {
     count: number
     episodes: Episode[]
 }
 
-type GetEpisodeResponse = Response & {
+type GetEpisodeResponse = Links & {
     success: boolean
     episode: Episode
 }
 
-type GetUserResponse = Response & {
+type GetUserResponse = Links & {
     user: User
 }
 
-type GetUsersShowsResponse = Response & {
+type GetUsersShowsResponse = Links & {
     success: boolean
     shows: Show[]
 }
 
-type GetUsersManagedShowsResponse = Response & {
+type GetUsersManagedShowsResponse = Links & {
     success: boolean
     show_user: ManagedShow[]
 }
 
-type GetShowScheduledEpisodesResponse = Response & {
+type GetShowScheduledEpisodesResponse = Links & {
     count: number
     episodes: ScheduledEpisode[]
 }
 
-type GetShowFeedUrlResponse = Response & {
+type GetShowFeedUrlResponse = Links & {
     feed: Feed
 }
 
+type GetMediaResponse = Actions & {
+    success: boolean
+    media: Media
+}
+
 export type {
+    Actions,
     AuthenticateUserResponse,
     GetEpisodeResponse,
+    GetMediaResponse,
     GetShowEpisodesResponse,
     GetShowFeedUrlResponse,
     GetShowResponse,
@@ -68,5 +83,5 @@ export type {
     GetUserResponse,
     GetUsersManagedShowsResponse,
     GetUsersShowsResponse,
-    Response,
+    Links,
 }

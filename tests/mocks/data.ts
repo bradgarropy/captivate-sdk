@@ -3,19 +3,10 @@ import {
     Episode,
     Feed,
     ManagedShow,
-    Response,
     ScheduledEpisode,
     Show,
     User,
 } from "../../src/types"
-
-const mockResponse: Response = {
-    _links: {
-        self: {
-            href: "https://captivate.fm",
-        },
-    },
-}
 
 const mockAuthenticatedUser: AuthenticatedUser = {
     id: "abc123",
@@ -265,7 +256,6 @@ export {
     mockEpisode,
     mockFeed,
     mockManagedShow,
-    mockResponse,
     mockScheduledEpisode,
     mockShow,
     mockUser,
