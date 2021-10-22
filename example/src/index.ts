@@ -4,7 +4,8 @@ import Captivate from "../../."
 
 dotenv.config()
 
-const SHOW_ID = "bae7a2f1-8cf5-46aa-b566-243bfbd837f7"
+// const SHOW_ID = "bae7a2f1-8cf5-46aa-b566-243bfbd837f7"
+const MEDIA_ID = "d376fde6-a49b-4a3d-917c-8001e956b1d7"
 // const EPISODE_ID = "82b91907-6d18-4fef-9aaf-7bd8273b75fc"
 
 const captivate = new Captivate(
@@ -52,13 +53,15 @@ const captivate = new Captivate(
 //     console.log(scheduledEpisodes)
 // })
 
-captivate.shows.getShowFeedUrl(SHOW_ID).then(feed => {
-    console.log(feed)
-})
+// captivate.shows.getShowFeedUrl(SHOW_ID).then(feed => {
+//     console.log(feed)
+// })
 
 // media
 
-// captivate.media.getMedia()
+captivate.media.getMedia(MEDIA_ID).then(media => {
+    console.log(media)
+})
 
 // captivate.media.uploadMedia()
 
