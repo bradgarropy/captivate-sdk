@@ -152,9 +152,17 @@ Get the RSS feed URL for a podcast.
 captivate.shows.getShowFeedUrl("abc123")
 ```
 
-### `captivate.media.getMedia()`
+### `captivate.media.getMedia(mediaId)`
 
-_// TODO_
+| Name      | Type     | Example    | Description |
+| --------- | -------- | ---------- | ----------- |
+| `mediaId` | `string` | `"abc123"` | Media id.   |
+
+Get an item from your media library.
+
+```javascript
+captivate.media.getMedia("abc123")
+```
 
 ### `captivate.media.uploadMedia()`
 
