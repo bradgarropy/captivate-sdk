@@ -1,6 +1,8 @@
 import {
+    Actions,
     AuthenticateUserResponse,
     GetEpisodeResponse,
+    GetMediaResponse,
     GetShowEpisodesResponse,
     GetShowFeedUrlResponse,
     GetShowResponse,
@@ -15,6 +17,7 @@ import {
     mockEpisode,
     mockFeed,
     mockManagedShow,
+    mockMedia,
     mockScheduledEpisode,
     mockShow,
     mockUser,
@@ -26,6 +29,15 @@ const mockLinks: Links = {
             href: "https://captivate.fm",
         },
     },
+}
+
+const mockActions: Actions = {
+    actions: [
+        {
+            href: "https://captivate.fm",
+            name: "self",
+        },
+    ],
 }
 
 const mockAuthenticateUserResponse: AuthenticateUserResponse = {
@@ -78,9 +90,17 @@ const mockGetShowFeedUrlResponse: GetShowFeedUrlResponse = {
     feed: mockFeed,
 }
 
+const mockGetMediaResponse: GetMediaResponse = {
+    ...mockActions,
+    success: true,
+    media: mockMedia,
+}
+
 export {
+    mockActions,
     mockAuthenticateUserResponse,
     mockGetEpisodeResponse,
+    mockGetMediaResponse,
     mockGetShowEpisodesResponse,
     mockGetShowFeedUrlResponse,
     mockGetShowResponse,
