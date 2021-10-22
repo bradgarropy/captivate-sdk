@@ -43,6 +43,7 @@ const getUsersShows = async (
     return json.shows
 }
 
+// TODO: url is incorrect
 const getUsersManagedShows = async (
     token: AuthenticatedUser["token"],
     userId: User["id"],

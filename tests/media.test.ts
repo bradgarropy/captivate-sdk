@@ -6,7 +6,11 @@ import {
     searchShowMedia,
     uploadMedia,
 } from "../src/media"
-import {mockGetMediaResponse, mockMedia} from "./mocks"
+import {
+    mockGetMediaResponse,
+    mockGetShowMediaResponse,
+    mockMedia,
+} from "./mocks"
 
 describe("media", () => {
     test("gets media", async () => {
@@ -21,9 +25,11 @@ describe("media", () => {
         expect(result).toBeUndefined()
     })
 
-    test("gets show media", () => {
-        const result = getShowMedia()
-        expect(result).toBeUndefined()
+    test("gets show media", async () => {
+        fetch.mockResponseOnce(JSON.stringify(mockGetShowMediaResponse))
+
+        const result = await getShowMedia("token", "abc123")
+        expect(result).toEqual([mockMedia])
     })
 
     test("searches show media", () => {

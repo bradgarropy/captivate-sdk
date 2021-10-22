@@ -168,9 +168,17 @@ captivate.media.getMedia("abc123")
 
 _// TODO_
 
-### `captivate.media.getShowMedia()`
+### `captivate.media.getShowMedia(showId)`
 
-_// TODO_
+| Name     | Type     | Example    | Description      |
+| -------- | -------- | ---------- | ---------------- |
+| `showId` | `string` | `"abc123"` | Podcast show id. |
+
+Get all media from a podcast.
+
+```javascript
+captivate.media.getShowMedia("abc123")
+```
 
 ### `captivate.media.searchShowMedia()`
 

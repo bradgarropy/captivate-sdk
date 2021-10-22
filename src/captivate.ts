@@ -1,6 +1,6 @@
 import {authenticateUser} from "./authentication"
 import {getEpisode} from "./episodes"
-import {getMedia} from "./media"
+import {getMedia, getShowMedia} from "./media"
 import {
     getShow,
     getShowEpisodes,
@@ -118,8 +118,11 @@ class Captivate {
         uploadMedia: () => {
             // TODO
         },
-        getShowMedia: () => {
-            // TODO
+        getShowMedia: async (showId: Show["id"]): Promise<Media[]> => {
+            await this.authentication.authenticateUser()
+
+            const showMedia = await getShowMedia(this.token as string, showId)
+            return showMedia
         },
         searchShowMedia: () => {
             // TODO
