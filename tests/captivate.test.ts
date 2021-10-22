@@ -5,8 +5,10 @@ import {
     mockAuthenticatedUser,
     mockAuthenticateUserResponse,
     mockEpisode,
+    mockFeed,
     mockGetEpisodeResponse,
     mockGetShowEpisodesResponse,
+    mockGetShowFeedUrlResponse,
     mockGetShowResponse,
     mockGetShowScheduledEpisodesResponse,
     mockGetUserResponse,
@@ -121,9 +123,11 @@ describe("shows", () => {
         expect(result).toEqual([mockScheduledEpisode])
     })
 
-    test("gets show feed url", () => {
-        const result = captivate.shows.getShowFeedUrl()
-        expect(result).toBeUndefined()
+    test("gets show feed url", async () => {
+        fetch.mockResponseOnce(JSON.stringify(mockGetShowFeedUrlResponse))
+
+        const result = await captivate.shows.getShowFeedUrl(mockShow.id)
+        expect(result).toEqual(mockFeed)
     })
 })
 

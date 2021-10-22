@@ -1,9 +1,15 @@
 import {authenticateUser} from "./authentication"
 import {getEpisode} from "./episodes"
-import {getShow, getShowEpisodes, getShowScheduledEpisodes} from "./shows"
+import {
+    getShow,
+    getShowEpisodes,
+    getShowFeedUrl,
+    getShowScheduledEpisodes,
+} from "./shows"
 import {
     AuthenticatedUser,
     Episode,
+    Feed,
     ManagedShow,
     ScheduledEpisode,
     Show,
@@ -92,8 +98,11 @@ class Captivate {
 
             return scheduledEpisodes
         },
-        getShowFeedUrl: () => {
-            // TODO
+        getShowFeedUrl: async (showId: Show["id"]): Promise<Feed> => {
+            await this.authentication.authenticateUser()
+
+            const feed = await getShowFeedUrl(this.token as string, showId)
+            return feed
         },
     }
 

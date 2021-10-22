@@ -1,6 +1,7 @@
 import {
     AuthenticatedUser,
     Episode,
+    Feed,
     ManagedShow,
     ScheduledEpisode,
     Show,
@@ -53,10 +54,15 @@ type GetShowScheduledEpisodesResponse = Response & {
     episodes: ScheduledEpisode[]
 }
 
+type GetShowFeedUrlResponse = Response & {
+    feed: Feed
+}
+
 export type {
     AuthenticateUserResponse,
     GetEpisodeResponse,
     GetShowEpisodesResponse,
+    GetShowFeedUrlResponse,
     GetShowResponse,
     GetShowScheduledEpisodesResponse,
     GetUserResponse,

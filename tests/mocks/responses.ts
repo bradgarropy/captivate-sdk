@@ -2,6 +2,7 @@ import {
     AuthenticateUserResponse,
     GetEpisodeResponse,
     GetShowEpisodesResponse,
+    GetShowFeedUrlResponse,
     GetShowResponse,
     GetShowScheduledEpisodesResponse,
     GetUserResponse,
@@ -11,6 +12,7 @@ import {
 import {
     mockAuthenticatedUser,
     mockEpisode,
+    mockFeed,
     mockManagedShow,
     mockResponse,
     mockScheduledEpisode,
@@ -63,10 +65,16 @@ const mockGetShowScheduledEpisodesResponse: GetShowScheduledEpisodesResponse = {
     episodes: [mockScheduledEpisode],
 }
 
+const mockGetShowFeedUrlResponse: GetShowFeedUrlResponse = {
+    ...mockResponse,
+    feed: mockFeed,
+}
+
 export {
     mockAuthenticateUserResponse,
     mockGetEpisodeResponse,
     mockGetShowEpisodesResponse,
+    mockGetShowFeedUrlResponse,
     mockGetShowResponse,
     mockGetShowScheduledEpisodesResponse,
     mockGetUserResponse,

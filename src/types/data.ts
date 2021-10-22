@@ -238,9 +238,12 @@ type ScheduledEpisode = Pick<
     | "original_media_id"
 >
 
+type Feed = string
+
 export type {
     AuthenticatedUser,
     Episode,
+    Feed,
     ManagedShow,
     ScheduledEpisode,
     Show,
